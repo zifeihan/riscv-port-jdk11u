@@ -609,8 +609,8 @@ class MacroAssembler: public Assembler {
 
   // Jumps that can reach anywhere in the code cache.
   // Trashes tmp.
-  void far_call(Address entry, CodeBuffer *cbuf = NULL, Register tmp = t0);
-  void far_jump(Address entry, CodeBuffer *cbuf = NULL, Register tmp = t0);
+  void far_call(Address entry, Register tmp = t0);
+  void far_jump(Address entry, Register tmp = t0);
 
   static int far_branch_size() {
     if (far_branches()) {
@@ -651,7 +651,8 @@ class MacroAssembler: public Assembler {
   void read_polling_page(Register r, address page, relocInfo::relocType rtype);
   void read_polling_page(Register r, int32_t offset, relocInfo::relocType rtype);
 
-  address trampoline_call(Address entry, CodeBuffer* cbuf = NULL);
+  // Return: the call PC or NULL if CodeCache is full.
+  address trampoline_call(Address entry);
   address ic_call(address entry, jint method_index = 0);
 
   void add_memory_int64(const Address dst, int64_t imm);
