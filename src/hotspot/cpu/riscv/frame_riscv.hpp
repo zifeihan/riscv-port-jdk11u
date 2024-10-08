@@ -115,18 +115,18 @@
 
     interpreter_frame_sender_sp_offset               = -3,
     // outgoing sp before a call to an invoked method
-    interpreter_frame_last_sp_offset                 = interpreter_frame_sender_sp_offset - 1,
-    interpreter_frame_method_offset                  = interpreter_frame_last_sp_offset - 1,
-    interpreter_frame_mdp_offset                     = interpreter_frame_method_offset - 1,
-    interpreter_frame_padding_offset                 = interpreter_frame_mdp_offset - 1,
-    interpreter_frame_mirror_offset                  = interpreter_frame_padding_offset - 1,
-    interpreter_frame_cache_offset                   = interpreter_frame_mirror_offset - 1,
-    interpreter_frame_locals_offset                  = interpreter_frame_cache_offset - 1,
-    interpreter_frame_bcp_offset                     = interpreter_frame_locals_offset - 1,
-    interpreter_frame_initial_sp_offset              = interpreter_frame_bcp_offset - 1,
+    interpreter_frame_last_sp_offset                 = interpreter_frame_sender_sp_offset - 1, // -4
+    interpreter_frame_method_offset                  = interpreter_frame_last_sp_offset - 1,   // -5
+    interpreter_frame_mdp_offset                     = interpreter_frame_method_offset - 1,    // -6
+    interpreter_frame_padding_offset                 = interpreter_frame_mdp_offset - 1,       // -7
+    interpreter_frame_mirror_offset                  = interpreter_frame_padding_offset - 1,   // -8
+    interpreter_frame_cache_offset                   = interpreter_frame_mirror_offset - 1,    // -9
+    interpreter_frame_locals_offset                  = interpreter_frame_cache_offset - 1,     // -10
+    interpreter_frame_bcp_offset                     = interpreter_frame_locals_offset - 1,    // -11
+    interpreter_frame_initial_sp_offset              = interpreter_frame_bcp_offset - 1,       // -12
 
-    interpreter_frame_monitor_block_top_offset       = interpreter_frame_initial_sp_offset,
-    interpreter_frame_monitor_block_bottom_offset    = interpreter_frame_initial_sp_offset,
+    interpreter_frame_monitor_block_top_offset       = interpreter_frame_initial_sp_offset,    // -12
+    interpreter_frame_monitor_block_bottom_offset    = interpreter_frame_initial_sp_offset,    // -12
 
     // Entry frames
     // n.b. these values are determined by the layout defined in
